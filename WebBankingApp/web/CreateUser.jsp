@@ -11,16 +11,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Create User</title>
     </head>
-    <script type="text/javascript">
-        function create() {
-            document.forms[0].action = "CreateUserServlet";
-            document.forms[0].submit();
-        }
-    </script>
     <%Object user = session.getAttribute("UserSession");
     session.setAttribute("UserSession",user);%>
     <body>
-        <form id="form1" runat="server">
+        <form id="form1" runat="server" action="CreateUserServlet" method="post">
             <h1>Create User</h1>
             <p>
                 First Name&nbsp;<input id="fName" type="text" name="fName"/>
@@ -30,11 +24,11 @@
                 Email<input id="email" type="text" name="email"/>
             </p>
             <p>
-                <input id="EmployeeBox" checked="false" name="employeeBox" type="checkbox" value="V1" />Employee&nbsp;&nbsp;&nbsp;&nbsp;
-                <input id="CustomerBox" checked="false" name="customerBox" type="checkbox" value="V1" />Customer
+                <input id="EmployeeBox" name="employeeBox" type="checkbox" value="V1" />Employee&nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="CustomerBox" name="customerBox" type="checkbox" value="V1" />Customer
             </p>
             <p>
-                <input id="SubmitButton" type="button" value="Submit" OnClick="create()"/>
+                <input id="SubmitButton" type="submit" value="Submit"/>
             </p>
         </form>
     </body>

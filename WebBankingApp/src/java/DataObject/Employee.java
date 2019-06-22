@@ -40,6 +40,11 @@ public class Employee extends User{
             insert = "Insert into user_table (UserId,FirstName,LastName,Email) Values (" 
                     + userId + ",'" + this.firstName + "','" + this.lastName + "','" + this.email +"');";
             stmt.executeUpdate(insert);
+            
+            stmt.close();
+            queryResult.close();
+            connection.close();
+            
         } catch (SQLException ex) {
             Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
         }

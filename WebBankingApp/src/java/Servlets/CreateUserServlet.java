@@ -98,7 +98,7 @@ public class CreateUserServlet extends HttpServlet {
                 Employee e;
                 e = new Employee(firstName,lastName,email);
                 DBInteractionModel model = new DBInteractionModel();
-                model.sendToDB(e,"", "", "");
+                model.sendToDB(e,"jdbc:mysql://localhost:3306/quintrixbankdb", "root", "mysql");
                 
                 //Prints out the Servlet page
                 out.println("<!DOCTYPE html>");

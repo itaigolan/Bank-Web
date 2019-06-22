@@ -6,8 +6,12 @@
 package Servlets;
 
 import DataObject.Customer;
+import Model.DBInteractionModel;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,6 +60,18 @@ public class CreateCustomerServlet extends HttpServlet {
             String radio = request.getParameter("SyncBox");
             if (radio != null){
                 syncCustomer = true;
+            }
+            
+            DBInteractionModel model = new DBInteractionModel();
+            if(syncCustomer){
+                
+            }
+            else{
+                try {
+                    model.sendToDB(c,"jdbc:mysql://localhost:3306/quintrixbankdb", "root", "mysql");
+                } catch (SQLException ex) {
+                    Logger.getLogger(CreateCustomerServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             
             out.println("<!DOCTYPE html>");

@@ -11,14 +11,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Page</title>
     </head>
-    <script type="text/javascript">
-        function callServlet() {
-            document.forms[0].action = "LoginServlet";
-            document.forms[0].submit();
-        }
-    </script>
     <body>
-        <form id="loginForm" name="loginForm" method="post">
+        <form id="loginForm" name="loginForm" action="LoginServlet" method="post">
             <h1>Welcome to the banking application, please login.</h1>
             <p>User Id&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" name="id"/>
@@ -29,7 +23,7 @@
             </p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input id="LoginButton" type="submit" value="Login" onclick="callServlet();"/>
+            <input id="LoginButton" type="submit" value="Login"/>
             </p>
         </form>
     </body>
